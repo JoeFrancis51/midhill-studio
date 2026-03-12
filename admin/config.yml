@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/midhill-studio
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "artwork"
+    label: "Artwork"
+    label_singular: "Artwork Piece"
+    folder: "_artwork"
+    create: true
+    delete: true
+    identifier_field: "title"
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "e.g. Birthday Banner for Emma" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Banner", value: "banner" }
+          - { label: "Poster", value: "poster" }
+          - { label: "Gift Bag", value: "gift-bag" }
+          - { label: "Other", value: "other" }
+      - { label: "Description", name: "description", widget: "text", hint: "Tell visitors about this piece." }
+      - { label: "Photo", name: "image", widget: "image", required: false, hint: "Upload a photo of the piece." }

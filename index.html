@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midhill Studio — Custom Art & Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf7f2;
+    --warm-white: #fff9f0;
+    --ink: #1a1208;
+    --terracotta: #c2613a;
+    --terracotta-light: #e8845e;
+    --sage: #7a9e7e;
+    --gold: #d4a853;
+    --gold-light: #f0cc7a;
+    --blush: #f0d5c8;
+    --border: #e8ddd0;
+    --text-soft: #6b5c4a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--cream); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 60px;
+    background: rgba(250,247,242,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; color: var(--terracotta); letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { text-decoration: none; color: var(--text-soft); font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--terracotta); }
+
+  #hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 60px 80px; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(194,97,58,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(122,158,126,0.1) 0%, transparent 60%), radial-gradient(ellipse 30% 30% at 60% 20%, rgba(212,168,83,0.12) 0%, transparent 50%); }
+  .hero-deco { position: absolute; right: 80px; top: 50%; transform: translateY(-50%); width: 480px; height: 480px; border-radius: 50% 40% 55% 45% / 45% 55% 40% 50%; background: linear-gradient(135deg, var(--blush) 0%, rgba(212,168,83,0.2) 60%, rgba(122,158,126,0.15) 100%); z-index: 0; animation: morphBlob 8s ease-in-out infinite; }
+  @keyframes morphBlob { 0%,100%{border-radius:50% 40% 55% 45%/45% 55% 40% 50%} 33%{border-radius:40% 55% 45% 50%/55% 40% 50% 45%} 66%{border-radius:55% 45% 50% 40%/40% 50% 45% 55%} }
+  .hero-content { position: relative; z-index: 1; max-width: 600px; }
+  .hero-tag { display: inline-block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); border: 1px solid var(--terracotta); padding: 6px 16px; border-radius: 100px; margin-bottom: 28px; animation: fadeUp 0.8s ease both; }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 6vw, 5.5rem); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; animation: fadeUp 0.8s 0.1s ease both; }
+  .hero-title em { font-style: italic; color: var(--terracotta); }
+  .hero-sub { font-size: 1.1rem; line-height: 1.7; color: var(--text-soft); margin-bottom: 40px; font-weight: 300; animation: fadeUp 0.8s 0.2s ease both; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s 0.3s ease both; }
+  .btn-primary { background: var(--terracotta); color: white; padding: 14px 32px; border-radius: 100px; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: all 0.25s; box-shadow: 0 4px 24px rgba(194,97,58,0.3); }
+  .btn-primary:hover { background: var(--terracotta-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(194,97,58,0.4); }
+  .btn-outline { border: 1.5px solid var(--ink); color: var(--ink); padding: 14px 32px; border-radius: 100px; text-decoration: none; font-size: 0.95rem; font-weight: 400; transition: all 0.25s; }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  section { padding: 100px 60px; }
+  .section-header { text-align: center; margin-bottom: 64px; }
+  .section-eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); letter-spacing: -0.02em; line-height: 1.1; }
+  .section-title em { font-style: italic; color: var(--terracotta); }
+  .section-sub { color: var(--text-soft); margin-top: 14px; font-size: 1rem; line-height: 1.7; }
+  .divider { width: 48px; height: 2px; background: linear-gradient(90deg, var(--terracotta), var(--gold)); margin: 20px auto 0; border-radius: 2px; }
+
+  #portfolio { background: var(--warm-white); }
+  .filter-tabs { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; }
+  .filter-tab { padding: 8px 20px; border-radius: 100px; cursor: pointer; font-size: 0.85rem; border: 1.5px solid var(--border); background: transparent; color: var(--text-soft); transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .filter-tab.active, .filter-tab:hover { border-color: var(--terracotta); color: var(--terracotta); background: rgba(194,97,58,0.07); }
+
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+  .art-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(26,18,8,0.06); transition: all 0.3s; }
+  .art-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(26,18,8,0.12); }
+  .art-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  .art-card-placeholder { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--blush), rgba(212,168,83,0.2)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+  .art-card-body { padding: 20px 22px 24px; }
+  .art-card-category { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 6px; }
+  .art-card-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 8px; }
+  .art-card-desc { font-size: 0.88rem; color: var(--text-soft); line-height: 1.6; }
+  .empty-state { grid-column: 1/-1; text-align: center; padding: 80px 20px; color: var(--text-soft); }
+  .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+
+  #about { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img-wrap { position: relative; aspect-ratio: 1; border-radius: 40% 60% 55% 45%/45% 40% 60% 55%; overflow: hidden; background: linear-gradient(135deg, var(--blush), rgba(212,168,83,0.3)); box-shadow: 0 20px 60px rgba(194,97,58,0.15); animation: morphBlob 10s ease-in-out infinite; display: flex; align-items: center; justify-content: center; font-size: 6rem; }
+  .about-eyebrow { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; }
+  .about-title { font-family: 'Playfair Display', serif; font-size: 2.6rem; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+  .about-title em { font-style: italic; color: var(--terracotta); }
+  .about-text { color: var(--text-soft); line-height: 1.8; margin-bottom: 16px; font-size: 1rem; }
+  .about-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+  .chip { background: var(--blush); color: var(--terracotta); padding: 7px 18px; border-radius: 100px; font-size: 0.85rem; }
+
+  #order { background: var(--warm-white); }
+  .order-wrap { max-width: 680px; margin: 0 auto; background: white; border-radius: 24px; padding: 56px 60px; box-shadow: 0 4px 40px rgba(26,18,8,0.08); }
+  .order-wrap .form-group input, .order-wrap .form-group textarea, .order-wrap .form-group select { background: var(--warm-white); }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 8px; }
+  .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px 16px; border-radius: 10px; border: 1.5px solid var(--border); font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--terracotta); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .btn-submit { width: 100%; padding: 15px 32px; border-radius: 100px; background: var(--terracotta); border: none; color: white; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 24px rgba(194,97,58,0.3); margin-top: 8px; }
+  .btn-submit:hover { background: var(--terracotta-light); transform: translateY(-2px); }
+  .success-msg { display: none; background: rgba(122,158,126,0.15); border: 1.5px solid var(--sage); border-radius: 12px; padding: 18px 22px; margin-top: 24px; color: #4a7a4e; font-size: 0.95rem; text-align: center; }
+  .success-msg.visible { display: block; }
+
+  footer { background: var(--ink); color: rgba(255,255,255,0.7); padding: 48px 60px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--gold); }
+  .footer-text { font-size: 0.85rem; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  @media (max-width: 800px) {
+    nav { padding: 16px 24px; } .nav-links { display: none; }
+    section, #about { padding: 70px 24px; } #hero { padding: 100px 24px 60px; }
+    .hero-deco { display: none; } #about { grid-template-columns: 1fr; gap: 40px; }
+    .about-img-wrap { max-width: 280px; margin: 0 auto; }
+    .order-wrap { padding: 36px 24px; } .form-row { grid-template-columns: 1fr; }
+    footer { padding: 36px 24px; flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Midhill Studio</div>
+  <ul class="nav-links">
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Custom Art & Design</div>
+    <h1 class="hero-title">Art made <em>just</em> for you</h1>
+    <p class="hero-sub">Banners, posters, gift bags, and more — each piece handcrafted with love by Jess, art teacher and creator based right in your community.</p>
+    <div class="hero-btns">
+      <a href="#order" class="btn-primary">Place a Custom Order</a>
+      <a href="#portfolio" class="btn-outline">See the Work</a>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="section-header">
+    <p class="section-eyebrow">✦ Gallery</p>
+    <h2 class="section-title">Recent <em>creations</em></h2>
+    <p class="section-sub">A peek at what's been made — every piece is one of a kind.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="filter-tabs">
+    <button class="filter-tab active" onclick="filterPortfolio('all', this)">All</button>
+    <button class="filter-tab" onclick="filterPortfolio('banner', this)">Banners</button>
+    <button class="filter-tab" onclick="filterPortfolio('poster', this)">Posters</button>
+    <button class="filter-tab" onclick="filterPortfolio('gift-bag', this)">Gift Bags</button>
+    <button class="filter-tab" onclick="filterPortfolio('other', this)">Other</button>
+  </div>
+  <div class="portfolio-grid" id="portfolioGrid">
+    <div class="empty-state"><div class="empty-icon">🎨</div><p>Loading gallery...</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-img-wrap">🎨</div>
+  <div>
+    <p class="about-eyebrow">✦ Meet the Artist</p>
+    <h2 class="about-title">Hi, I'm <em>Jess</em></h2>
+    <p class="about-text">I'm an art teacher with a passion for turning ideas into beautiful, tangible pieces. Whether it's a birthday banner, a custom poster for your home, or a decorated gift bag that makes someone feel truly special — I love bringing your vision to life.</p>
+    <p class="about-text">Every order is made by hand, with care and creativity. I work with you to get the details just right.</p>
+    <div class="about-chips">
+      <span class="chip">Banners</span>
+      <span class="chip">Posters</span>
+      <span class="chip">Gift Bags</span>
+      <span class="chip">Cards</span>
+      <span class="chip">Custom Requests</span>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="section-header">
+    <p class="section-eyebrow">✦ Let's Create</p>
+    <h2 class="section-title">Place a <em>custom order</em></h2>
+    <p class="section-sub">Fill out the form and Jess will be in touch within 24–48 hours.</p>
+    <div class="divider"></div>
+  </div>
+  <div class="order-wrap">
+    <div class="form-row">
+      <div class="form-group"><label>First Name</label><input type="text" id="o-first" placeholder="Jane"></div>
+      <div class="form-group"><label>Last Name</label><input type="text" id="o-last" placeholder="Smith"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Email Address</label><input type="email" id="o-email" placeholder="jane@email.com"></div>
+      <div class="form-group"><label>Phone Number</label><input type="tel" id="o-phone" placeholder="(555) 000-0000"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Type of Art</label>
+        <select id="o-type">
+          <option value="">— Select one —</option>
+          <option>Banner</option><option>Poster</option><option>Gift Bag</option><option>Card</option><option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Needed By (Date)</label><input type="date" id="o-date"></div>
+    </div>
+    <div class="form-group">
+      <label>What do you have in mind?</label>
+      <textarea id="o-desc" placeholder="Describe the piece — theme, colors, any text, size, who it's for... the more detail the better!"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Budget Range (Optional)</label>
+      <select id="o-budget">
+        <option value="">— Prefer not to say —</option>
+        <option>Under $25</option><option>$25 – $50</option><option>$50 – $100</option><option>$100 – $200</option><option>$200+</option>
+      </select>
+    </div>
+    <button class="btn-submit" onclick="submitOrder()">Send My Request ✦</button>
+    <div class="success-msg" id="orderSuccess">🎉 Thank you! Your request has been sent. Jess will be in touch soon!</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Midhill Studio</div>
+  <p class="footer-text">Handcrafted art, made with love.</p>
+  <div class="footer-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#order">Order</a>
+  </div>
+</footer>
+
+<script>
+  let allArtworks = [];
+  let currentFilter = 'all';
+
+  async function loadArtworks() {
+    try {
+      const res = await fetch('/data.json?v=' + Date.now());
+      allArtworks = await res.json();
+    } catch(e) {
+      allArtworks = [];
+    }
+    renderPortfolio(currentFilter);
+  }
+
+  function categoryEmoji(cat) {
+    return { banner:'🎉', poster:'🖼️', 'gift-bag':'🎁', other:'🎨' }[cat] || '🎨';
+  }
+
+  function renderPortfolio(filter) {
+    currentFilter = filter;
+    const grid = document.getElementById('portfolioGrid');
+    const filtered = filter === 'all' ? allArtworks : allArtworks.filter(a => a.category === filter);
+    if (!filtered.length) {
+      grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🖼️</div><p>No pieces in this category yet — check back soon!</p></div>`;
+      return;
+    }
+    grid.innerHTML = filtered.map(a => `
+      <div class="art-card">
+        ${a.image
+          ? `<img class="art-card-img" src="${a.image}" alt="${a.title}" loading="lazy">`
+          : `<div class="art-card-placeholder">${categoryEmoji(a.category)}</div>`}
+        <div class="art-card-body">
+          <p class="art-card-category">${a.category.replace('-',' ')}</p>
+          <h3 class="art-card-title">${a.title}</h3>
+          <p class="art-card-desc">${a.description}</p>
+        </div>
+      </div>`).join('');
+  }
+
+  function filterPortfolio(filter, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderPortfolio(filter);
+  }
+
+  function submitOrder() {
+    const first = document.getElementById('o-first').value.trim();
+    const email = document.getElementById('o-email').value.trim();
+    const type = document.getElementById('o-type').value;
+    const desc = document.getElementById('o-desc').value.trim();
+    if (!first || !email || !type || !desc) { alert('Please fill in your name, email, type of art, and description!'); return; }
+    const subject = encodeURIComponent(`Custom Art Order from ${first} ${document.getElementById('o-last').value}`);
+    const body = encodeURIComponent(`New order!\n\nName: ${first} ${document.getElementById('o-last').value}\nEmail: ${email}\nPhone: ${document.getElementById('o-phone').value||'N/A'}\nType: ${type}\nNeeded By: ${document.getElementById('o-date').value||'N/A'}\nBudget: ${document.getElementById('o-budget').value||'N/A'}\n\nDescription:\n${desc}`);
+    window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
+    document.getElementById('orderSuccess').classList.add('visible');
+    ['o-first','o-last','o-email','o-phone','o-desc'].forEach(id => document.getElementById(id).value='');
+    document.getElementById('o-type').value=''; document.getElementById('o-date').value=''; document.getElementById('o-budget').value='';
+  }
+
+  loadArtworks();
+</script>
+</body>
+</html>

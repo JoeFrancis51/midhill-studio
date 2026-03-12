@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome Home Banner",
+    "category": "banner",
+    "description": "Custom watercolor banner in soft pinks and golds, perfect for a homecoming celebration.",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "title": "Sunflower Party Bag",
+    "category": "gift-bag",
+    "description": "Hand-painted sunflower design on a kraft gift bag — bright, cheerful, and totally unique.",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "title": "Graduation Poster",
+    "category": "poster",
+    "description": "Personalized graduation poster with name, year, and a hand-lettered congratulations message.",
+    "image": ""
+  }
+]
